@@ -17,7 +17,8 @@ export class Portfolio implements AfterViewInit {
 
   statistics = signal('187+');
   
-  ecommerce = '11.png';
+  ecommerce = '3.png';
+  chat="11.png"
   javascript = 'js.png';
   nodejs = 'node-js.png';
   angular = 'angular.png';
