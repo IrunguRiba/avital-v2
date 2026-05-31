@@ -1,0 +1,389 @@
+/* Layout Wrapper */
+.page-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(26, 26, 26, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  /* Left Hero Section */
+  .left-hero-section {
+    flex: 1;
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .left-hero-section {
+      display: block;
+      flex: 0 0 40%;
+    }
+  }
+  
+  /* Floating Logo Layout Positioning adjustments */
+  .floating-logo-container {
+    font-weight: bold;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #091a36;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Right Light Grey Card Container */
+  .right-card-section {
+    flex: 1;
+    background-color: #dcdcdc;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    will-change: transform;
+  }
+  
+  @media (max-width: 767px) {
+    .right-card-section {
+      border-radius: 0;
+      padding: 24px;
+    }
+  }
+  
+  /* Inner Layout Alignment */
+  .card-content {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    min-height: 85vh;
+    position: relative;
+  }
+  
+  /* Divider Line */
+  .top-divider {
+    border: none;
+    border-top: 1px solid rgba(26, 26, 26, 0.5);
+    width: 20%;
+    margin: 20px auto 10px auto;
+    transform-origin: center;
+  will-change: transform;
+  }
+  
+  /* Headings Styling */
+  .header-group {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  
+  .sub-headline {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #2b2b2b;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .main-headline {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #111111;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+  
+  /* Highlighted Engraved CTA Frame Styling */
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+  
+  .engraved-frame {
+    display: inline-block;
+    padding: 10px 32px;
+    will-change: transform, opacity;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .engraved-frame::before,
+  .engraved-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+  }
+  
+  .engraved-frame::before {
+    left: 0;
+    border-width: 0 0 0 1px;
+  }
+  
+  .engraved-frame::after {
+    right: 0;
+    border-width: 0 1px 0 0;
+  }
+  
+  .cta-link {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #111111;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .cta-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #111111;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .cta-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  
+  /* Nav & Column Layout Stacking Area */
+  .footer-navigation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: auto;
+    padding-bottom: 20px;
+    gap: 100px;
+  }
+  
+  .nav-and-legal-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 28px;
+  }
+  
+  .legals {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2rem;
+    gap: 1.2rem;
+  }
+  .nav-links a, 
+.legal-link, 
+.floating-logo-container {
+  will-change: transform, opacity;
+}
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .nav-links a {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: #2b2b2b;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    align-self: flex-start;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #000000;
+  }
+  
+  /* Classy Nav Links Underline Animation */
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  /* Animated Square Dot Hover Effect For Nav Elements */
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .nav-links a:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  
+  /* Row wrapper for Logo and Legals layout alignment */
+  .legal-column-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+  .legal-link {
+
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #555555;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .legal-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .legal-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .legal-link:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  
+  /* Animated Square Dot Hover Effect */
+  .legal-link::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  
+  .legal-link:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  #logoImg {
+    width: 4em;
+    height: 1.7em;
+    filter: brightness(0) contrast(1000%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  #logoImg:hover {
+    filter: brightness(0) contrast(100%); /* Optional hover state change */
+  }
+  /* Copyright Section Layout */
+  .copyright {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #000000;
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
+    align-self: center;
+  }
+  
+  /* Floating Action Button (FAB) */
+  .help-fab {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3b2504;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    z-index: 10;
+  }
+  
+  .help-fab:hover {
+    transform: scale(1.05);
+  }
+  
+  .help-icon {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Mobile Responsive Adjustments */
+  @media (max-width: 767px) {
+    .help-fab {
+      right: 20px;
+      bottom: 50px;
+    }
+    .legal-column-stack {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }

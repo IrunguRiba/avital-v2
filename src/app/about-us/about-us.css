@@ -1,0 +1,572 @@
+/* about-us.component.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Mono', monospace;
+  }
+  
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+ 
+    color: #000000;
+    padding: 0 2rem;
+  }
+  
+  /* ===== TYPOGRAPHY & EDITORIAL STYLE ===== */
+  h1, h2, h3, .caption {
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
+  }
+ 
+ 
+  
+ 
+  
+  
+  
+  
+  /* BELIEF STATEMENT */
+  .belief-block {
+    margin: 4.5rem 0 3.5rem 0;
+    padding: 5.5rem 0;
+
+    display: flex;
+  }
+  
+  .quality-badge h1{
+    margin-left: 2rem;
+    font-size: 3.4rem;
+    font-weight: 680;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+  }
+  .quality-badge h2{
+    margin-left: 14rem;
+    font-size: 2rem;
+  }
+ 
+  
+  .quality-badge span {
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .quality-badge span::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: #ffd966;
+    opacity: 0.4;
+    z-index: -1;
+    border-radius: 4px;
+  }
+  
+  .philosophy-sub {
+    font-size: 1.1rem;
+    font-weight: 670;
+    letter-spacing: 0.3px;
+    color: #4a4a4a;
+    margin-top: 0.8rem;
+    margin-left: 3rem;
+  
+  }
+  
+  .belief-text {
+    font-size: 1.55rem;
+    line-height: 1.6;
+    font-weight: 460;
+    max-width: 90%;
+    color: #000000;
+    border-left: 1px solid #1b1b1b;
+    padding-left: 2rem;
+    transition: border 0.2s ease;
+    margin: 5em;
+  }
+  
+  .belief-text span {
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  
+/* MISSION + VISION GRID */
+.mission-vision-grid {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+}
+
+/* EACH ROW */
+.mission-card,
+.vision-card {
+  display: flex;
+  min-height: 220px;
+}
+
+/* LABEL SECTION */
+.label {
+  width: 30%;
+  background: #1a1a1a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* TEXT SECTION */
+.mission-card p,
+.vision-card p {
+  width: 70%;
+
+  color: #050505;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* VISION REVERSED */
+.vision-card {
+  flex-direction: row-reverse;
+}
+/* ===== REVIEWS SECTION ===== */
+
+.reviews-section {
+  width: 100%;
+  
+  padding: 7rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reviews-header h2 {
+  font-size: 4.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.reviews-header .sub {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 0.8rem;
+  
+  text-transform: uppercase;
+}
+
+/* WRAPPER */
+
+.reviews-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* SCROLL CONTAINER */
+
+.reviews-track-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+
+.reviews-track-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* TRACK */
+
+.reviews-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+
+  animation: autoScroll 35s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+/* CARD */
+
+.review-card {
+  width: 580px;
+  min-width: 380px;
+
+  color: rgb(0, 0, 0);
+
+  padding: 2.5rem;
+
+  border-radius: 28px;
+
+  position: relative;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* QUOTE */
+
+.quote-mark {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: rgb(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  font-weight: 100;
+}
+
+/* TEXT */
+
+.review-text {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(0, 0, 0, 0.88);
+margin: 1rem;
+  min-height: auto;
+}
+
+/* FOOTER */
+
+.review-footer {
+ 
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 1.2rem;
+
+  border-top: 1px solid rgba(2, 2, 2, 0.08);
+}
+
+.review-author {
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  font-size: 1.5rem;
+  color: #111111;
+}
+
+
+
+/* BUTTONS */
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 56px;
+  height: 56px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,0.68);
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 1.3rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.scroll-btn.left {
+  left: 1rem;
+}
+
+.scroll-btn.right {
+  right: 1rem;
+}
+
+/* AUTO MOVE */
+
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .reviews-header h2 {
+    font-size: 3rem;
+  }
+
+  .review-card {
+    width: 300px;
+    min-width: 300px;
+
+    padding: 2rem;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    min-height: auto;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+}
+  
+  /* FAQ SECTION */
+  .faq-block {
+    padding: 4rem 0 3rem 1.5rem;
+    border-top: 1px solid #eaeaea;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+  
+  .faq-title {
+    margin-bottom: 3rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  }
+  
+  .faq-title h1 {
+    font-size: 4rem;
+    font-weight: 620;
+    letter-spacing: 0.1em;
+  }
+  
+  .faq-title p {
+    font-size: 0.7rem;
+    font-weight: 480;
+    
+    color: #6c6c6c;
+    margin-left: 5rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .faq-dual {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .faq-questions {
+    flex: 1.2;
+    min-width: 200px;
+  }
+  
+  .faq-q-item {
+    padding: 1.2rem 0;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.25); 
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    font-weight: 550;
+    font-size: 1rem;
+    letter-spacing: -0.2px;
+  
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .faq-q-item .q-num {
+    font-weight: 700;
+    color: #2b2b2b;
+    width: 28px;
+  }
+  
+  .faq-q-item:hover {
+    border-bottom-color: #a17310;
+  }
+  
+  .faq-q-item.active-question {
+    font-weight: 650;
+    color: #4d2c06;
+  }
+  
+  .faq-answer-area {
+    flex: 1;
+    padding: 1rem 1rem;
+    min-height: 300px;
+    transition: all 0.2s;
+  }
+  
+  .answer-content {
+    font-size: 2.12rem;
+    line-height: 1.55;
+    font-weight: 450;
+    color: #171717;
+    animation: fadeScale 0.25s ease-out;
+  }
+  
+  @keyframes fadeScale {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .placeholder-answer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    height: 100%;
+    width: 100%;
+    font-style: italic;
+  
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: 500;
+    opacity: 0.3;
+
+  }
+  
+  /* FOOTER */
+  .footer {
+    margin: 4rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .quick-contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .small-square {
+    width: 28px;
+    height: 28px;
+    background-color: #1f1f1f;
+    transition: transform 0.2s ease;
+  }
+  
+  .quick-contact a {
+    text-decoration: none;
+    font-weight: 620;
+    color: #000;
+    font-size: 1rem;
+    letter-spacing: -0.2px;
+    border-bottom: 1px solid transparent;
+    transition: border 0.2s;
+  }
+  
+  .quick-contact a:hover {
+    border-bottom: 1px solid #000;
+  }
+  
+  .logo #about-logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 900px) {
+    .container {
+      padding: 0 1.2rem;
+    }
+    
+    .belief-text {
+      font-size: 1.25rem;
+      max-width: 100%;
+      padding-left: 1rem;
+    }
+    
+    .mission-vision-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .mission-card {
+      border-right: none;
+      border-bottom: 1px solid #eaeaea;
+    }
+    
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .right {
+      text-align: left;
+    }
+    
+    .faq-dual {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .faq-answer-area {
+      min-height: auto;
+    }
+    
+    .review-card {
+      padding: 1.5rem;
+    }
+    
+    .review-text {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 560px) {
+    .left h1 {
+      font-size: 2.8rem;
+    }
+    
+    .quality-badge {
+      font-size: 1.6rem;
+    }
+    
+    .mission-card p:not(.label), .vision-card p:not(.label) {
+      font-size: 1.1rem;
+    }
+  }

@@ -1,0 +1,827 @@
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    min-height: 100vh;
+    margin-top: 0;
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding:
+        5rem   /* top */
+        2rem   /* right */
+        2rem   /* bottom */
+        2rem;  /* left */
+}
+
+/* commitment text */
+#commitment-text {
+    width: 51%;
+    align-self: flex-start;
+    margin: 2rem 0 0 2rem;
+}
+
+#commitment-text p {
+    font-size: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+#commitment-text span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* waves + stats wrapper */
+.stats {
+    width: 100%;
+    display: flex;
+    font-family: 'Orbitron', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: -4rem;
+}
+
+#waves {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* statistics section */
+#statis {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: -6rem;
+    font-weight: bolder;
+}
+#commitment-text,
+.stats,
+#statis,
+.project-card,
+.featured-section,
+.marquee-wrapper,
+.marquee-track {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+.stat1, .stat2, .stat3 {
+    text-align: center;
+}
+
+.stat1 h1, .stat2 h2, .stat3 h2,
+.stat1 h2, .stat2 h3, .stat3 h3 {
+    margin: 0;
+}
+
+.portfolio-container h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: #ffffff;
+    text-transform: none;
+}
+
+.portfolio-container #compeleted {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #c58a18;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.portfolio-container #success {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+.portfolio-container h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #c58a18;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+}
+
+.animated-title {
+    display: inline-block;
+    font-size: 2.6rem;
+    color: #ffffff;
+    font-weight: 400;
+    animation: fadeFloat 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mini-proof {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+.stars, .rating-stars {
+    color: #c58a18;
+    letter-spacing: 2px;
+}
+
+.stars small {
+    color: rgba(255,255,255,0.7);
+    margin-left: 0.5rem;
+}
+
+.counter, #success {
+    position: relative;
+}
+
+.highlight {
+    color: #c58a18;
+}
+
+@keyframes fadeFloat {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   FEATURED SECTIONS & GRID Layout
+========================= */
+.featured-section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 5rem;
+}
+
+.featured-grid {
+    display: grid;              
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr;    
+    position: relative;
+    width: 100%;
+}
+
+.project-card {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: max-content 0.7fr max-content;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px; 
+    position: relative; 
+}
+
+.project-card.reverse {
+    grid-template-columns: max-content 0.7fr max-content;
+}
+
+.project-card:not(.reverse) {
+    z-index: 1; 
+}
+
+.project-card.reverse {
+    z-index: 2;            
+    opacity: 0;            
+    transform: translateY(60px); 
+    will-change: transform, opacity; 
+}
+
+/* =========================
+   DYNAMIC CONNECTORS
+========================= */
+.phone-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 42px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.left-flow::before {
+    margin-left: 2rem;          /* anchor inside edge */
+    margin-left: 12px;   /* small gap into flow */
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 12px;
+}
+
+.right-flow::before {
+    right: 100%;
+    margin-right: 12px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 12px;
+}
+
+/* =========================
+   PROJECT INTERIOR CONTENT
+========================= */
+.project-text h3 {
+    color: #d89a1d;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.project-text p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    font-size: 1rem;
+    max-width: 320px;
+}
+
+.project-text a {
+    display: inline-block;
+    margin-top: 2rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.project-text a:hover {
+    opacity: 0.7;
+}
+
+.project-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 2rem;
+}
+
+.project-card:not(.reverse) .project-preview {
+    margin-left: 7em;
+    margin-right: 0;
+}
+
+.project-card.reverse .project-preview {
+    margin-right: 7em;
+    margin-left: 0;
+}
+
+.flow-box {
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #d9d9d9;
+    color: #111;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 200;
+}
+
+.flow-line {
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.flow-box.accent {
+    background: #c58a18;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.flow-box.green {
+    background: #4db788;
+}
+
+.phone-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 32px;
+    display: block;
+}
+
+/* =========================
+   MARQUEE WORKSPACE (PINNED)
+========================= */
+.marquee-wrapper {
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+.marquee-title {
+    text-align: center;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: 12px;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 2rem;
+    will-change: transform;
+}
+
+/* Disables native CSS loop conflicts entirely so GSAP scrub tracks cleanly */
+.marquee-left .marquee-track,
+.marquee-right .marquee-track {
+    animation: none !important;
+}
+
+.marquee-track img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    padding: 2.2rem;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.marquee span {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    padding: 2rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgb(90, 52, 8);
+}
+
+/* =========================
+   MEDIA QUERY HOOKS
+========================= */
+@media (max-width: 1100px) {
+    .phone-container::before {
+        display: none !important;
+    }
+    .project-card, .project-card.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    .project-card:not(.reverse) .project-preview,
+    .project-card.reverse .project-preview {
+        margin: 2rem auto;
+    }
+    .project-text p {
+        margin: auto;
+    }
+    .project-preview { order: 2; }
+    .phone-container { order: 1; }
+}
+
+@media (max-width: 768px) {
+    .featured-section { padding: 4rem 1.5rem; }
+    .flow-box { min-width: 170px; font-size: 1.1rem; }
+    .project-text h3 { font-size: 1.7rem; }
+}
+
+
+
+.marquee-left .marquee-track {
+    animation: marqueeLeft 40s linear infinite;
+}
+
+.marquee-right .marquee-track {
+    animation: marqueeRight 20s linear infinite;
+}
+
+@keyframes marqueeLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marqueeRight {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* =========================
+   GRID (BALANCED INTERIOR SHAPES)
+========================= */
+
+.featured-grid {
+    display: grid;              
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr;    
+    position: relative;
+    width: 100%;
+   
+}
+
+.project-card {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: max-content 0.7fr max-content;
+    align-items: center;
+    justify-content: center;
+
+    background: #0a0a0a; 
+    border-radius: 16px; 
+    position: relative; 
+}
+
+/* Card 2 layout */
+.project-card.reverse {
+    grid-template-columns: max-content 0.7fr max-content;
+  
+}
+
+/* =========================
+   INDEX DEPTH LAYERING
+========================= */
+/* =========================
+   INDEX DEPTH LAYERING & GSAP INIT STATES
+========================= */
+.project-card:not(.reverse) {
+    z-index: 1; 
+}
+
+.project-card.reverse {
+    z-index: 2;            /* Positions over Card 1 once triggered */
+    opacity: 0;            /* Hidden by default before scroll interaction */
+    transform: translateY(60px); /* Pre-positioned lower for a premium slide-up entry */
+    will-change: transform, opacity; /* Optimizes browser rendering performance */
+}
+.project-card.reverse {
+    z-index: 1;
+}
+
+/* =========================
+   DYNAMIC FLOW CONNECTORS
+========================= */
+
+.phone-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.phone-container::before {
+    content: "";
+    position: absolute;
+    width: 230px;               
+    height: 42px;             
+    border: 4px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;     
+    z-index: -1;
+}
+
+/* Left Card Pathing Setup */
+.left-flow::before {
+    top: 17%;                 
+    left: -9.5em;              
+    border-right: none;       
+    border-bottom: none;
+    border-top-left-radius: 12px; 
+}
+
+/* Right Card Pathing Setup (Mirrored perfectly) */
+.right-flow::before {
+    top: 17%;
+    right: -9.5em;            
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 12px; 
+}
+
+@media (max-width: 1100px) {
+    .phone-container::before {
+        display: none !important;
+    }
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.project-text h3 {
+    color: #d89a1d;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.project-text p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    font-size: 1rem;
+    max-width: 320px;
+}
+
+.project-text a {
+    display: inline-block;
+    margin-top: 2rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.project-text a:hover {
+    opacity: 0.7;
+}
+
+/* =========================
+   FLOW TIMELINE LAYOUT
+========================= */
+
+.project-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* FIX: Applies space safely depending on layout structure orientation */
+.project-card:not(.reverse) .project-preview {
+    margin-left: 7em;
+    margin-right: 0;
+}
+
+.project-card.reverse .project-preview {
+    margin-right: 7em;
+    margin-left: 0;
+}
+
+.flow-box {
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #d9d9d9;
+    color: #111;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 200;
+}
+
+.flow-line {
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.flow-box.accent {
+    background: #c58a18;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.flow-box.green {
+    background: #4db788;
+}
+
+.phone-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 32px;
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE LAYOUTS
+========================= */
+
+@media (max-width: 1100px) {
+    .project-card,
+    .project-card.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .project-card:not(.reverse) .project-preview,
+    .project-card.reverse .project-preview {
+        margin: 2rem auto;
+    }
+
+    .project-text p {
+        margin: auto;
+    }
+
+    .project-preview {
+        order: 2;
+    }
+
+    .phone-container {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .marquee-wrapper {
+        width: 100%;
+    }
+
+    .flow-box {
+        min-width: 170px;
+        font-size: 1.1rem;
+    }
+
+    .phone-mockup {
+        width: 220px;
+        height: 460px;
+    }
+
+    .project-text h3 {
+        font-size: 1.7rem;
+    }
+}
+
+.project-text p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    font-size: 1rem;
+    max-width: 320px;
+}
+
+.project-text a {
+    display: inline-block;
+    margin-top: 2rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.project-text a:hover {
+    opacity: 0.7;
+}
+
+/* =========================
+   FLOW
+========================= */
+
+.project-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 7em;
+}
+
+.flow-box {
+    min-width: 150px;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #d9d9d9;
+    color: #111;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 200;
+}
+
+.flow-box.large {
+    height: 110px;
+    background: #d9d9d9;
+}
+
+.flow-line {
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.flow-box.accent {
+    background: #c58a18;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.flow-box.green {
+    background: #4db788;
+}
+
+
+
+.phone-screen-image {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+
+    border-radius: 32px;
+
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .project-card,
+    .project-card.reverse {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .project-text p {
+        margin: auto;
+    }
+
+    .project-preview {
+        order: 2;
+    }
+
+    .phone-mockup {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .featured-section {
+        padding: 6rem 1.5rem;
+    }
+
+    .marquee-wrapper {
+        width: 100%;
+    }
+
+    .flow-box {
+        min-width: 170px;
+        font-size: 1.1rem;
+    }
+
+    .phone-mockup {
+        width: 220px;
+        height: 460px;
+    }
+
+    .project-text h3 {
+        font-size: 1.7rem;
+    }
+}

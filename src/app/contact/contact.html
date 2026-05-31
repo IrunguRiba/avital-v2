@@ -1,0 +1,189 @@
+<!-- contact.component.html -->
+<section class="contact-section" id="contact">
+
+  <!-- SUCCESS OVERLAY -->
+  <div class="success-overlay" [class.show]="showSuccess">
+    <div class="success-num">Success</div>
+    <h2 class="success-title">Message <em>sent.</em></h2>
+    <p class="success-sub">We will be in touch shortly</p>
+  </div>
+  <div class="blur-wrapper" [class.blurred]="showSuccess">
+  <div class="contact-grid">
+
+    <!-- ── LEFT: INFO ── -->
+    <div class="contact-info">
+      <p class="eyebrow">Get in touch </p>
+
+      <h1 class="title">OUR CONTACT</h1>
+
+      <p class="subtitle">
+        Let's talk. Whatever you need,<br />
+        we're ready to help.
+      </p>
+
+      <!-- Contact Details Block -->
+      <div class="contact-details-block">
+        <div class="detail-item">
+          <span class="detail-label">Email</span>
+          <a href="mailto:support@avital.ac.ke" class="detail-value">support&#64;avital.ac.ke</a>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Phone No</span>
+          <a href="tel:+254768793478" class="detail-value">+254 768 793 478</a>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Hours</span>
+          <p class="detail-value">
+            Open Monday to Friday<br />
+            8 am till 9 pm, and<br />
+            Tuesdays 8 am till 5 pm
+          </p>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Referrals</span>
+          <a href="#" class="detail-value referral-link">Refer a student here →</a>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Address</span>
+          <p class="detail-value">Roysambu, Nairobi Kenya</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DIVIDER ── -->
+    <div class="divider"></div>
+
+    <!-- ── RIGHT: FORM ── -->
+    <div class="contact-form-wrap">
+      <div class="form-index">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot-line"></span>
+        <span class="dot-label">New Message</span>
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <!-- FULL NAME -->
+        <div class="field-group">
+          <input type="text" id="fullName" formControlName="fullName" placeholder=" " autocomplete="name" />
+          <label for="fullName">Full Name <span class="opt">[ optional ]</span></label>
+        </div>
+
+        <!-- PHONE + EMAIL (DUAL) -->
+        <div class="dual-fields" id="dualFields">
+
+          <!-- PHONE -->
+          <div class="field-group" id="phoneGroup">
+            <input type="text" id="phone" formControlName="phone" placeholder=" " autocomplete="tel" class="field-active" />
+            <label for="phone">Phone No. <span class="opt">[ required ]</span></label>
+            <div class="radio-row">
+              <input type="radio" name="contactChoice" value="phone" id="radioPhone" class="radio-toggle"
+                     [checked]="contactForm.get('contactChoice')?.value === 'phone'"
+                     (change)="onRadioChange('phone')" />
+              <label for="radioPhone" class="radio-label" style="pointer-events:auto; cursor:pointer;">Use phone</label>
+            </div>
+            <p class="err-msg" [class.visible]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched && isPhoneSelected()">
+              A valid phone number is required.
+            </p>
+          </div>
+
+          <div class="or-divider">or</div>
+
+          <!-- EMAIL -->
+          <div class="field-group" id="emailGroup">
+            <input type="email" id="email" formControlName="email" placeholder=" " autocomplete="email" />
+            <label for="email">EMAIL <span class="opt">[ required ]</span></label>
+            <div class="radio-row">
+              <input type="radio" name="contactChoice" value="email" id="radioEmail" class="radio-toggle"
+                     [checked]="contactForm.get('contactChoice')?.value === 'email'"
+                     (change)="onRadioChange('email')" />
+              <label for="radioEmail" class="radio-label" style="pointer-events:auto; cursor:pointer;">Use email</label>
+            </div>
+            <p class="err-msg" [class.visible]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched && !isPhoneSelected()">
+              Enter a valid email address.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- SUBJECT -->
+      <!-- SUBJECT -->
+<div class=" subject-group">
+
+    <p class="subject-title">Subject</p>
+  
+    <div class="subject-options">
+  
+      <label class="subject-option">
+        <input type="radio" formControlName="subject" value="Project" />
+        <span>Project</span>
+      </label>
+  
+      <label class="subject-option">
+        <input type="radio" formControlName="subject" value="Proposal" />
+        <span>Proposal</span>
+      </label>
+  
+      <label class="subject-option">
+        <input type="radio" formControlName="subject" value="Other" />
+        <span>Other</span>
+      </label>
+  
+    </div>
+  
+    <p class="err-msg"
+       [class.visible]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+      Subject is required.
+    </p>
+  
+  </div>
+
+        <!-- MESSAGE -->
+        <div class="field-group">
+          <textarea id="message" formControlName="message" rows="2" placeholder=" "></textarea>
+          <label for="message">Insight-[brief]</label>
+          <p class="err-msg" [class.visible]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+            Please include a message.
+          </p>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-row">
+          <button type="submit" class="submit-btn" #submitBtn><span>Send Message</span></button>
+          <p class="submit-note">
+            Processed within 4 hrs during working hours &mdash; 8 hrs on weekends.
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-strip">
+    <div class="footer-left">
+      <div class="footer-note">
+        All requests are processed immediately or almost within 4 hours during working hours and within 8 hours on weekends.
+      </div>
+      <div class="footer-copyright">Avital / The Relieve You Need</div>
+    </div>
+    <div class="footer-right">
+      <div class="social-links">
+        <span class="social-label">Social</span>
+        <a href="#" class="social-link">Instagram</a>
+        <a href="#" class="social-link">Facebook</a>
+        <a href="#" class="social-link">Linkedin</a>
+        <a href="#" class="social-link">Google</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>

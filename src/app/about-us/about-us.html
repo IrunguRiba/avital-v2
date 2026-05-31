@@ -1,0 +1,135 @@
+<div class="about-us">
+  <div class="container">
+  
+      
+    <div class="belief-block">
+      <div class="left">
+        <div class="quality-badge">
+          <h1>QUALITY</h1> 
+          <h2>FIRST</h2>
+        </div>
+        <div class="philosophy-sub"><em>Philosophy of Building Software</em></div>
+      </div>
+      <div class="belief-text">
+        WE <span>BELIEVE</span> THERE'S A BETTER WAY TO BUILD SCHOOL SOFTWARE PROJECTS.<br>
+        — A WAY THAT EMPOWERS STUDENTS TO UNDERSTAND EVERY LINE OF CODE, EVERY DECISION, AND EVERY STAGE OF DEVELOPMENT, ESPECIALLY IN THE AGE OF AI-GENERATED SOLUTIONS.
+      </div>
+    </div>
+  </div>
+
+ <!-- MISSION + VISION dual panel -->
+<div class="mission-vision-grid">
+
+<!-- MISSION -->
+<div class="mission-card">
+  <div class="label">OUR MISSION</div>
+
+  <p>
+    TO EMPOWER STUDENTS TO BUILD SCHOOL SOFTWARE PROJECTS THROUGH
+    HANDS-ON DEVELOPMENT, STEP-BY-STEP GUIDANCE, AND REAL-WORLD
+    ENGINEERING PRACTICE. WE FOCUS ON TEACHING THE PROCESS BEHIND
+    THE CODE — NOT JUST DELIVERING THE RESULT.
+  </p>
+</div>
+
+<!-- VISION -->
+<div class="vision-card">
+  <div class="label">OUR VISION</div>
+
+  <p>
+    TO EMPOWER STUDENTS TO LEARN BY BUILDING REAL SOFTWARE PROJECTS
+    AND GAIN TRUE UNDERSTANDING THROUGH HANDS-ON DEVELOPMENT.
+  </p>
+</div>
+
+</div>
+
+<!-- REVIEWS SECTION -->
+<div class="reviews-section">
+
+<div class="reviews-header">
+  <h2>Our Reviews</h2>
+  <div class="sub">Why students choose AVITAL</div>
+</div>
+
+<div class="reviews-wrapper">
+
+  <!-- LEFT BUTTON -->
+  <button class="scroll-btn left" (click)="scrollReviews('left')">
+    ←
+  </button>
+
+  <!-- TRACK -->
+  <div class="reviews-track-container">
+
+    <div class="reviews-track">
+
+      <div class="review-card" *ngFor="let review of [...reviews, ...reviews]">
+
+        <div class="quote-mark">{{ review.rating }}</div>
+
+        <div class="review-text">
+          {{ review.text }}
+        </div>
+
+        <div class="review-footer">
+
+          <div class="review-author">
+            {{ review.author }}
+          </div>
+
+          
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT BUTTON -->
+  <button class="scroll-btn right" (click)="scrollReviews('right')">
+    →
+  </button>
+
+</div>
+
+</div>
+
+  <!-- FAQ SECTION with dynamic answer panel -->
+  <div class="faq-block">
+    <div class="faq-title">
+      <h1>FAQs</h1>
+      <p>Students ASK:</p>
+    </div>
+    <div class="faq-dual">
+      <div class="faq-questions">
+        <div *ngFor="let faq of faqs; let i = index"
+             class="faq-q-item"
+             [class.active-question]="selectedFaqIndex === i"
+             (click)="selectFaq(i)"
+             (mouseenter)="hoveredQuestionIndex = i"
+             (mouseleave)="hoveredQuestionIndex = null">
+          <span class="q-num">{{ i + 1 }}.</span>
+          {{ faq.question }}
+          <span class="faq-plus">
+            {{ selectedFaqIndex === i ? '−' : '+' }}
+          </span>
+        
+        </div>
+      </div>
+      <div class="faq-answer-area">
+        <div *ngIf="selectedFaqIndex !== null" class="answer-content">
+          {{ faqs[selectedFaqIndex].answer }}
+        </div>
+        <div *ngIf="selectedFaqIndex === null" class="placeholder-answer">
+         WE VALUE YOU
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  
+</div>
+</div>

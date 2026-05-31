@@ -1,0 +1,112 @@
+<div class="overlay">
+  <div class="panel">
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-left">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Talk To Our Team</h2>
+      </div>
+
+      <button class="close" type="button" (click)="closePanel()">
+        Close <span class="close-icon">&#10005;</span>
+      </button>
+    </div>
+
+    <!-- SUB -->
+    <p class="sub">Please fill in some quick details so we can reach you</p>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <!-- GRID: Names -->
+      <div class="grid-2">
+        <div class="field">
+          <input type="text" formControlName="firstName" placeholder=" " />
+          <label>First Name — Optional</label>
+          <div class="line"></div>
+        </div>
+
+        <div class="field">
+          <input type="text" formControlName="lastName" placeholder=" " />
+          <label>Last Name — Optional</label>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- GRID: Contact -->
+      <div class="grid-2">
+        <div class="field">
+          <input type="email" formControlName="email" placeholder=" " />
+          <label>Email Address — Required</label>
+          <div class="line"></div>
+        </div>
+
+        <div class="field">
+          <input type="tel" formControlName="phone" placeholder="+2547XXXXXXXX" />
+          <label>Phone Number — Required</label>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- INSTITUTION RADIO -->
+      <div class="section">
+        <h3>Select Institution Type</h3>
+
+        <div class="radio-group">
+          <label class="radio">
+            <input type="radio" formControlName="institutionType" value="university" />
+            <span></span>
+            University
+          </label>
+
+          <label class="radio">
+            <input type="radio" formControlName="institutionType" value="college" />
+            <span></span>
+            College
+          </label>
+
+          <label class="radio">
+            <input type="radio" formControlName="institutionType" value="tti" />
+            <span></span>
+            TTI
+          </label>
+          <label class="radio">
+            <input type="radio" formControlName="institutionType" value="Any Other" />
+            <span></span>
+            ANY OTHER
+          </label>
+        </div>
+      </div>
+
+      <!-- SERVICE -->
+      <div class="section service-section">
+        <h3>Service — Required</h3>
+
+        <div class="radio-group">
+          <label class="radio">
+            <input type="radio" formControlName="service" value="proposal" />
+            <span></span>
+            Proposal / Brainstorming
+          </label>
+
+          <label class="radio">
+            <input type="radio" formControlName="service" value="project" />
+            <span></span>
+            Project
+          </label>
+
+          <label class="radio">
+            <input type="radio" formControlName="service" value="other" />
+            <span></span>
+            Any Other
+          </label>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="actions">
+        <button type="submit" [disabled]="form.invalid">
+          <span>Submit</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

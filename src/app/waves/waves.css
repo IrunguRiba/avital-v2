@@ -1,0 +1,25 @@
+:host {
+    display: block;
+  }
+  
+ 
+  canvas {
+    width: 100vw;
+    height: 320px;
+    display: block;
+    filter: blur(0.5px) contrast(1.2) saturate(1.25);
+  }
+  
+  .fade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(5, 7, 20, 0.55) 60%,
+        rgba(5, 7, 20, 1) 100%
+      ),
+     
+  }

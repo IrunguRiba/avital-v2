@@ -1,0 +1,139 @@
+
+<div class="nav" #navigation>
+
+  <!-- LOGO START HERE, INSIDE NAV INSIDE SOMMTHS -->
+  <div class="logo" (click)="gotoHome()">
+    <div class="mark">
+      <span id="A">V</span><span id="V">V</span>
+    </div>
+    <img [src]="logo" alt="Avital logo" id="logoImg" (click)="gotoHome()">
+  </div>
+
+  <!-- LOGO ENDS HERE -->
+
+
+  <!-- consult button is inside menu-consult -->
+  <div class="menu-consult">
+    <div class="consultation" [class.hide]="menuOpen">
+
+      <p #text1>Let's Talk</p>
+    </div>
+
+    <!-- tHESE ARE THE THREE MENU BARS -->
+    <div class="menu-bar" [class.open]="menuOpen" (click)="toggleMenu()">
+      <span></span><span></span>
+    </div>
+  </div>
+</div>
+<div class="quick-contact-wrapper" [class.open]="quickContactOpen">
+  <app-quick-contact
+    (close)="closeQuickContact()">
+  </app-quick-contact>
+</div>
+
+
+    <!-- NAV STARTS HERE, IT HAS LOGO, LOGO IMAGE, START CONSULT BUTTON AND MENU  -->
+
+
+<!-- This is menu, you can just put it anywhere, it has nothing to do with the hero page  -->
+<div class="side-menu" [class.open]="menuOpen">
+  <div class="menu-overlay" (click)="closeMenu()"></div>
+  <div class="menu-panel" #menupanel>
+    <div class="menu-two-columns">
+      <div class="overview-right">
+        <h3 class="section-title">Overview</h3>
+        <div class="overview-content">
+          <p>We are committed to serve YOU</p>
+          <p class="contact-underline2">Roysambu, Nairobi, Kenya</p>
+          <p class="contact-underline">P: +254 768 793 478</p>
+          <p class="contact-underline">E: info@avital.co.ke</p>
+          <p class="contact-underline2">Mon - Fri: 8am - 11pm</p>
+          <p class="contact-underline2">Saturday: 8am - 6pm</p>
+          <div class="referral-section">
+            <p class="referral-link" (click)="gotoFooter()">Refer A Student</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-left">
+        <h3 class="section-title">Menu</h3>
+        <div class="sidebar-navigation">
+          <ul>
+            <li><a (click)="gotoHome(); closeMenu()">Home</a></li>
+            <li><a (click)="gotoPortfolio(); closeMenu()">Portfolio</a></li>
+            <li><a (click)="gotoAbout(); closeMenu()">About Us</a></li>
+            <li><a (click)="gotoPrices(); closeMenu()">Prices</a></li>
+            <li><a (click)="gotoContact(); closeMenu()">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="smooth-wrapper">
+  <div id="smooth-content">
+
+    <div class="apps-wrapper" id="apps-wrapper">
+      <div class="hero" id="hero" [class.visible]="currentSection === 'hero'" #hero>
+        <div class="hero-bg">
+          <app-hero-particles></app-hero-particles>
+        </div>
+     
+        <div class="hero-content">
+      
+          <!-- LEFT SIDE -->
+          <div class="left">
+            
+            <p>
+              
+              YOUR PROJECT <br><br><br>
+              <span id="done">DONE</span>
+            </p>
+          </div>
+      
+          <!-- RIGHT SIDE -->
+          <div class="right">
+            
+            <p id="right">
+              RIGHT <span id="plus">+</span>
+            </p>
+          </div>
+      
+          <!-- 🔻 DIVIDER + CTA SECTION -->
+          <div class="divide2">
+      
+            <!-- LEFT LINK -->
+            <a #text1 class="start-link" (click)="openQuickContact()">
+              Start your Project Here
+            </a>
+      
+            
+            <!-- RIGHT TEXT + LOGO -->
+            <div id="contact-text-logo">
+      
+              <p class="divide-text">
+                <a class="avital-link" (click)="gotoHome()">AVITAL</a>
+                supports computer science and IT students by building complete projects—from proposals,
+                software development, hosting, deployment, and mock presentations—while making algorithms,
+                systems design, and logic easy to understand in practice.
+              </p>
+      
+              <img [src]="logo" alt="Avital logo" id="logoImg2">
+      
+            </div>
+      
+          </div>
+      
+        </div>
+      </div>
+     
+
+      <div class="portfolio  section" [class.visible]="currentSection === 'portfolio'" #portfolioSection id="portfolio"><app-portfolio></app-portfolio></div>
+      <div class="about-us  section" [class.visible]="currentSection === 'about'" #aboutSection id="about"><app-about-us></app-about-us></div>
+      <div class="prices  section"  [class.visible]="currentSection === 'prices'" #pricesSection id="prices"><app-prices></app-prices></div>
+      <div class="contact  section" [class.visible]="currentSection === 'contact'" #contactSection id="contact" ><app-contact></app-contact></div>
+      <div class="footer  section" [class.visible]="currentSection === 'footer'" #footerSection id="footer"><app-footer (navigateSection)="scrollToSection($event)"></app-footer></div>
+    </div>
+  </div>
+</div>
+

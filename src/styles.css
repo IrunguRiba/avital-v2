@@ -1,0 +1,42 @@
+body {
+  background: #0a0a0a; 
+  min-height: 100vh;
+  margin: 0;
+  background-attachment: fixed;
+
+  /* subtle grid */
+  background-image:
+    linear-gradient(rgba(225, 220, 201, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225, 220, 201, 0.02) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+}
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* app stays above */
+app-root {
+  position: relative;
+  z-index: 2;
+}
+
+/* optional ultra subtle grid (fallback layer feel) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(225,220,201,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(225,220,201,0.03) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+  opacity: 0.5;
+}
