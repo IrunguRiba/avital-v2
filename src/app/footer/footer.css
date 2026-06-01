@@ -326,12 +326,11 @@
     width: 4em;
     height: 1.7em;
     filter: brightness(0) contrast(1000%);
+    opacity: 0.8;
     transition: transform 0.3s ease, filter 0.3s ease;
   }
 
-  #logoImg:hover {
-    filter: brightness(0) contrast(100%); /* Optional hover state change */
-  }
+  
   /* Copyright Section Layout */
   .copyright {
     font-family: 'DM Mono', monospace;
@@ -344,7 +343,10 @@
  
     align-self: center;
   }
-  
+  .copyright span{
+    font-size: 15px;
+    margin-top: 3em;
+  }
   /* Floating Action Button (FAB) */
   .help-fab {
     position: absolute;
