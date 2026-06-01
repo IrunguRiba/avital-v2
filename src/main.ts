@@ -127,3 +127,5 @@ animate();
 setInterval(() => {
   if (Math.random() > 0.5) spawnShootingStar();
 }, 2500);
+
+

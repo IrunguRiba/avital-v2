@@ -1,3 +1,40 @@
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable; 
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #ffd9a4 0%, rgba(255, 217, 164, 0.2) 50%, #171818 100%);
+  background-attachment: fixed; 
+  border-left: 1px solid rgba(225, 220, 201, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(4px); 
+  border-radius: 20px;
+  border: 3px solid #171818;
+  box-shadow: inset 0 0 0 1px rgba(225, 220, 201, 0.2); 
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1px #ffd9a4; 
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(227, 147, 35, 0.3);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(225, 220, 201, 0.2) #171818;
+}
+
+
 body {
   background: #0a0a0a; 
   min-height: 100vh;
@@ -19,14 +56,10 @@ body {
   z-index: 0;
   pointer-events: none;
 }
-
-/* app stays above */
 app-root {
   position: relative;
   z-index: 2;
 }
-
-/* optional ultra subtle grid (fallback layer feel) */
 body::before {
   content: "";
   position: fixed;
