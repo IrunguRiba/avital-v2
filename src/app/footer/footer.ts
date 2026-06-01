@@ -35,7 +35,6 @@ export class Footer implements AfterViewInit {
   }
 
   private initFooterAnimation(): void {
-    // 1. Target the parent container so triggering isn't thrown off by the moving child element
     const footerTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: '.page-container',
@@ -45,55 +44,50 @@ export class Footer implements AfterViewInit {
     });
 
     footerTimeline
-      // 2. Slide the entire right-card-section container from left (-100%) and fade it in
+      // 2. Slide the entire container sharply from left (+100%)
       .from('.right-card-section', {
         xPercent: +100,
-        opacity: 0,
         duration: 1.1,
         ease: 'power3.out'
       })
 
-      // 3. Stagger reveal the main text blocks inside it as it lands
+      // 3. Stagger reveal the main text blocks sharply
       .from('.header-group .sub-headline, .header-group .main-headline', {
         y: 30,
-        opacity: 0,
         duration: 0.7,
         stagger: 0.12,
         ease: 'power3.out'
-      }, '-=0.5') // Overlaps with the container sliding finish
+      }, '-=0.5')
       
-      // 4. Grow the subtle top geometric divider from the center
+      // 4. Grow the geometric divider from the center
       .from('.top-divider', {
         scaleX: 0,
         duration: 0.5,
         ease: 'power2.inOut'
       }, '-=0.3')
 
-      // 5. Pop open the custom engraved frame and slide up the link text inside it
+      // 5. Pop open the frame sharply
       .from('.engraved-frame', {
         scale: 0.95,
-        opacity: 0,
         duration: 0.4,
         ease: 'power2.out'
       }, '-=0.2')
       
-      // 6. Stagger reveal all individual column link arrays
+      // 6. Stagger reveal individual links sharply
       .from('.nav-links a, .floating-logo-container, .legals .legal-link', {
         y: 15,
-        opacity: 0,
         duration: 0.5,
         stagger: 0.04,
         ease: 'power2.out'
       }, '-=0.2')
 
-      // 7. Final accents drop: Help FAB spring + base copyright stamp reveal
+      // 7. Final accents drop
       .from('.help-fab', {
         scale: 0,
         duration: 0.4,
         ease: 'back.out(1.5)'
       }, '-=0.2')
       .from('.copyright', {
-        opacity: 0,
         y: 10,
         duration: 0.4
       }, '-=0.1');
