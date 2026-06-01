@@ -80,16 +80,5 @@ export class Footer implements AfterViewInit {
         stagger: 0.04,
         ease: 'power2.out'
       }, '-=0.2')
-
-      // 7. Final accents drop
-      .from('.help-fab', {
-        scale: 0,
-        duration: 0.4,
-        ease: 'back.out(1.5)'
-      }, '-=0.2')
-      .from('.copyright', {
-        y: 10,
-        duration: 0.4
-      }, '-=0.1');
   }
 }
