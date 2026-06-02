@@ -138,6 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
       
       if (cell.isHovered) {
         cell.isHovered = false;
+        cell.commands = workflows[Math.floor(Math.random() * workflows.length)];
         cell.displayedLines = [];
         cell.currentLine = 0;
         cell.currentChar = 0;
