@@ -114,7 +114,7 @@ export class HeroParticlesComponent implements AfterViewInit, OnDestroy {
       const screenX = x * scale + cx;
       const screenY = y * scale + cy;
 
-      const size = scale * 2;
+      const size = scale * 1;
 
       this.ctx.beginPath();
       this.ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
