@@ -12,12 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  // Layout Configurations
   const GRID_SIZE = 90;     
   const MOUSE_RADIUS = 200;  
   const WARP_DEPTH = 0.5;    
 
-  // Style Configs (Ultra subtle figma mesh aesthetics)
   const COLOR_GRID_LINE = 'rgba(225, 220, 201, 0.01)'; 
   const COLOR_GRID_DOT = 'rgba(225, 220, 201, 0.12)';  
   const COLOR_HOVER_CELL = 'rgba(255, 217, 164, 0.03)';
@@ -29,12 +27,18 @@ window.addEventListener('DOMContentLoaded', () => {
   let cells: GridCell[] = [];
   
   const mouse = { x: null as number | null, y: null as number | null };
-
+  
   const workflows = [
-    ['npm install -g @angular/cli', 'npm install', 'ng serve'],
     ['npm i', 'npm run build', 'npm start'],
     ['yarn install', 'yarn dev', 'yarn build'],
-    ['docker build -t app .', 'docker run -p 4200:4200 app']
+    ['docker build -t app .', 'docker run -p 4200:4200 app'],
+    ['npm install -g @angular/cli', 'npm install', 'ng serve'],
+    ['npm install', 'npx prisma migrate dev', 'npm run start:dev'],
+    ['python -m venv venv', 'source venv/bin/activate', 'pip install -r requirements.txt', 'python manage.py runserver'],
+    ['flutter pub get', 'flutter doctor', 'flutter run'],
+    ['git checkout main', 'git pull origin main', 'git checkout -b feature/new-stuff'],
+    ['npm install', 'npm run dev', 'npm run build'],
+    ['minikube start', 'kubectl apply -f deployment.yaml', 'kubectl get pods']
   ];
 
   interface NodePoint {
@@ -166,7 +170,6 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 1. Render Base 3D Mesh Structures
     ctx.lineWidth = 0.5;
     for (let c = 0; c < gridColumns; c++) {
       for (let r = 0; r < gridRows; r++) {
@@ -189,7 +192,6 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 2. Render Active Glowing Terminals inside Hovered Grid Cells
     cells.forEach(cell => {
       if (!cell.isHovered) return;
 
@@ -211,8 +213,8 @@ window.addEventListener('DOMContentLoaded', () => {
       ctx.lineWidth = 1.0;
       ctx.stroke();
 
-      const paddingX = 10;
-      let startY = tl.y + 18;
+      const paddingX = 8;
+      let startY = tl.y + 22;
 
       ctx.save();
       ctx.beginPath();
@@ -225,25 +227,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
       ctx.fillStyle = 'rgba(225, 220, 201, 0.3)';
       ctx.font = '9px "DM Mono", monospace';
-      ctx.fillText(`node_idx:[${cell.col},${cell.row}]`, tl.x + paddingX, tl.y + 12);
+      ctx.fillText(`node_idx:[${cell.col},${cell.row}]`, tl.x + paddingX, tl.y + 11);
 
-      ctx.font = '10px "DM Mono", monospace';
+      ctx.font = '9px "DM Mono", monospace';
+      
+      let currentRenderY = startY;
+      const maxWidth = GRID_SIZE - (paddingX * 2) - 12;
+
       cell.displayedLines.forEach((lineText, idx) => {
-        const lineY = startY + (idx * 16);
-        
         ctx.fillStyle = '#e39323';
-        ctx.fillText('$', tl.x + paddingX, lineY);
+        ctx.fillText('$', tl.x + paddingX, currentRenderY);
 
         ctx.fillStyle = 'rgba(225, 220, 201, 0.8)';
-        ctx.fillText(lineText, tl.x + paddingX + 10, lineY);
-      });
+        
+        const words = lineText.split(' ');
+        let currentLineBuild = '';
 
-      if (cell.currentLine < cell.commands.length && Math.floor(Date.now() / 200) % 2 === 0) {
-        const currentLineText = cell.displayedLines[cell.currentLine] || '';
-        const textWidth = ctx.measureText(currentLineText).width;
-        ctx.fillStyle = '#ffd9a4';
-        ctx.fillRect(tl.x + paddingX + 11 + textWidth, startY + (cell.currentLine * 16) - 9, 5, 10);
-      }
+        for (let i = 0; i < words.length; i++) {
+          const testLine = currentLineBuild + (currentLineBuild ? ' ' : '') + words[i];
+          const testWidth = ctx.measureText(testLine).width;
+
+          if (testWidth > maxWidth && i > 0) {
+            ctx.fillText(currentLineBuild, tl.x + paddingX + 10, currentRenderY);
+            currentRenderY += 12;
+            currentLineBuild = words[i];
+          } else {
+            currentLineBuild = testLine;
+          }
+        }
+        
+        ctx.fillText(currentLineBuild, tl.x + paddingX + 10, currentRenderY);
+
+        if (idx === cell.currentLine && cell.currentLine < cell.commands.length && Math.floor(Date.now() / 200) % 2 === 0) {
+          const lastLineWidth = ctx.measureText(currentLineBuild).width;
+          ctx.fillStyle = '#ffd9a4';
+          ctx.fillRect(tl.x + paddingX + 12 + lastLineWidth, currentRenderY - 8, 4, 9);
+        }
+
+        currentRenderY += 14; 
+      });
 
       ctx.restore();
     });
@@ -255,9 +277,7 @@ window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(loop);
   }
 
-  // Handle Input Listeners with 90% view cutoff rules
   window.addEventListener('mousemove', (e) => {
-    // If the mouse passes below 90% of screen height, release focus to let the native page scroll
     if (e.clientY > window.innerHeight * 0.9) {
       mouse.x = null;
       mouse.y = null;
