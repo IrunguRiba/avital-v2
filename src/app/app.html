@@ -10,7 +10,7 @@
   <!-- CONSULT + MENU -->
   <div class="menu-consult">
     <div class="consultation" [class.hide]="menuOpen">
-      <p #text1 (click)="gotoContact()">Let's Talk</p>
+      <a #text1 (click)="gotoContact()">Let's Talk</a>
     </div>
     <div class="menu-bar" [class.open]="menuOpen" (click)="toggleMenu()">
       <span></span><span></span>
