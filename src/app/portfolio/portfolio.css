@@ -532,7 +532,7 @@
 /* Left Card Pathing Setup */
 .left-flow::before {
     top: 17%;                 
-    left: -9.5em;              
+    left: -7.7em;              
     border-right: none;       
     border-bottom: none;
     border-top-left-radius: 12px; 
@@ -541,7 +541,7 @@
 /* Right Card Pathing Setup (Mirrored perfectly) */
 .right-flow::before {
     top: 17%;
-    right: -9.5em;            
+    right: -7.7em;            
     border-left: none;
     border-bottom: none;
     border-top-right-radius: 12px; 
