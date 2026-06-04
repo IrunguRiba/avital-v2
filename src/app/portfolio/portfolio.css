@@ -193,7 +193,7 @@
     grid-column: 1;
     grid-row: 1;
     display: grid;
-    grid-template-columns: max-content 0.7fr max-content;
+    grid-template-columns: max-content 0.5fr max-content;
     align-items: center;
     justify-content: center;
     border-radius: 16px; 
@@ -201,7 +201,7 @@
 }
 
 .project-card.reverse {
-    grid-template-columns: max-content 0.7fr max-content;
+    grid-template-columns: max-content 0.5fr max-content;
 }
 
 .project-card:not(.reverse) {
