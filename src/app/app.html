@@ -1,7 +1,5 @@
-
 <div class="nav" #navigation>
-
-  <!-- LOGO START HERE, INSIDE NAV INSIDE SOMMTHS -->
+  <!-- LOGO START -->
   <div class="logo" (click)="gotoHome()">
     <div class="mark">
       <span id="A">V</span><span id="V">V</span>
@@ -9,33 +7,23 @@
     <img [src]="logo" alt="Avital logo" id="logoImg" (click)="gotoHome()">
   </div>
 
-  <!-- LOGO ENDS HERE -->
-
-
-  <!-- consult button is inside menu-consult -->
+  <!-- CONSULT + MENU -->
   <div class="menu-consult">
     <div class="consultation" [class.hide]="menuOpen">
-
       <p #text1 (click)="gotoContact()">Let's Talk</p>
     </div>
-
-    <!-- tHESE ARE THE THREE MENU BARS -->
     <div class="menu-bar" [class.open]="menuOpen" (click)="toggleMenu()">
       <span></span><span></span>
     </div>
   </div>
 </div>
+
+<!-- QUICK CONTACT DRAWER -->
 <div class="quick-contact-wrapper" [class.open]="quickContactOpen">
-  <app-quick-contact
-    (close)="closeQuickContact()">
-  </app-quick-contact>
+  <app-quick-contact (close)="closeQuickContact()"></app-quick-contact>
 </div>
 
-
-    <!-- NAV STARTS HERE, IT HAS LOGO, LOGO IMAGE, START CONSULT BUTTON AND MENU  -->
-
-
-<!-- This is menu, you can just put it anywhere, it has nothing to do with the hero page  -->
+<!-- SIDE MENU -->
 <div class="side-menu" [class.open]="menuOpen">
   <div class="menu-overlay" (click)="closeMenu()"></div>
   <div class="menu-panel" #menupanel>
@@ -43,10 +31,13 @@
       <div class="overview-right">
         <h3 class="section-title">Overview</h3>
         <div class="overview-content">
-          <p>We are committed to serve YOU</p>
+          <p>We are committed to serve you</p>
+          <br>
+          <h3 class="section-title">Address</h3>
           <p class="contact-underline2">Roysambu, Nairobi, Kenya</p>
           <p class="contact-underline">P: +254 768 793 478</p>
           <p class="contact-underline">E: info@avital.co.ke</p>
+          <h3 class="section-title">Availabilty</h3>
           <p class="contact-underline2">Mon - Fri: 8am - 11pm</p>
           <p class="contact-underline2">Saturday: 8am - 6pm</p>
           <div class="referral-section">
@@ -70,70 +61,84 @@
     </div>
   </div>
 </div>
+
+<!-- SMOOTH SCROLL CONTENT -->
 <div id="smooth-wrapper">
   <div id="smooth-content">
-
     <div class="apps-wrapper" id="apps-wrapper">
+      
+      <!-- HERO SECTION -->
       <div class="hero" id="hero" [class.visible]="currentSection === 'hero'" #hero>
         <div class="hero-bg">
           <app-hero-particles></app-hero-particles>
         </div>
-     
+
         <div class="hero-content">
-      
           <!-- LEFT SIDE -->
           <div class="left">
-            
-            <p>
-              
+            <h1>
               YOUR PROJECT <br><br><br>
               <span id="done">DONE</span>
-            </p>
+            </h1>
           </div>
-      
+
           <!-- RIGHT SIDE -->
           <div class="right">
-            
-            <p id="right">
-              RIGHT <span id="plus">+</span>
-            </p>
+            <p id="right">RIGHT <span id="plus">+</span></p>
           </div>
-      
-          <!-- 🔻 DIVIDER + CTA SECTION -->
+
+          <!-- DIVIDER + CTA SECTION -->
           <div class="divide2">
-      
             <!-- LEFT LINK -->
             <a #text1 class="start-link" (click)="openQuickContact()">
               Quick Contact Here
             </a>
-      
-            
+
             <!-- RIGHT TEXT + LOGO -->
             <div id="contact-text-logo">
-      
-              <p class="divide-text">
-                <a class="avital-link" (click)="gotoHome()">AVITAL</a>
-                supports computer science and IT students by building complete projects—from proposals,
-                software development, hosting, deployment, and mock presentations—while making algorithms,
-                systems design, and logic easy to understand in practice.
-              </p>
-      
+              <div class="divide-text">
+                <h2 class="divide-body">
+                Supporting 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">CS</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">IT</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">engineering</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">business</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">bioinformatics</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">physics</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">economics</a>, 
+                  and other students with full software project development—from 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">proposals</a> to 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">coding</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">hosting</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">deployment</a>, and 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">mock presentations</a>.
+                  Simplified 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">algorithms</a>, 
+                  <a class="keyword-link" (click)="scrollToSection('portfolio'); $event.stopPropagation()">system design</a>.
+                </h2>
+              </div>
               <img [src]="logo" alt="Avital logo" id="logoImg2">
-      
             </div>
-      
           </div>
-      
         </div>
       </div>
-     
 
-      <div class="portfolio  section" [class.visible]="currentSection === 'portfolio'" #portfolioSection id="portfolio"><app-portfolio></app-portfolio></div>
-      <div class="about-us  section" [class.visible]="currentSection === 'about'" #aboutSection id="about"><app-about-us></app-about-us></div>
-      <div class="prices  section"  [class.visible]="currentSection === 'prices'" #pricesSection id="prices"><app-prices></app-prices></div>
-      <div class="contact  section" [class.visible]="currentSection === 'contact'" #contactSection id="contact" ><app-contact></app-contact></div>
-      <div class="footer  section" [class.visible]="currentSection === 'footer'" #footerSection id="footer"><app-footer (navigateSection)="scrollToSection($event)"></app-footer></div>
+      <!-- SECTIONS -->
+      <div class="portfolio section" [class.visible]="currentSection === 'portfolio'" #portfolioSection id="portfolio">
+        <app-portfolio></app-portfolio>
+      </div>
+      <div class="about-us section" [class.visible]="currentSection === 'about'" #aboutSection id="about">
+        <app-about-us></app-about-us>
+      </div>
+      <div class="prices section" [class.visible]="currentSection === 'prices'" #pricesSection id="prices">
+        <app-prices></app-prices>
+      </div>
+      <div class="contact section" [class.visible]="currentSection === 'contact'" #contactSection id="contact">
+        <app-contact></app-contact>
+      </div>
+      <div class="footer section" [class.visible]="currentSection === 'footer'" #footerSection id="footer">
+        <app-footer (navigateSection)="scrollToSection($event)"></app-footer>
+      </div>
     </div>
   </div>
 </div>
-
