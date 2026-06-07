@@ -21,7 +21,6 @@ body, p, .divide-body, .overview-content p, .contact-underline,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
@@ -724,14 +723,19 @@ body {
    MOBILE PORTRAIT UI ONLY (Full Screen Nav & Sidebar Adaptation)
    ========================================================================== */
 @media (max-width: 768px) {
-  
-  *{
-    overflow: hidden;
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    overflow-x: hidden;
   }
+  
   /* 1. Reset Global Wrapper Dynamics */
   #smooth-wrapper {
     font-size: 1.4rem;
-    overflow-x: hidden;
+   margin: 1rem;
   }
   
   .apps-wrapper {
