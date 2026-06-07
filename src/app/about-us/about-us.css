@@ -98,54 +98,86 @@
 
   
 /* MISSION + VISION GRID */
-.mission-vision-grid {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
-}
-
-/* EACH ROW */
-.mission-card,
-.vision-card {
-  display: flex;
-  min-height: 220px;
-}
-
-/* LABEL SECTION */
-.label {
-  width: 30%;
-  background: #1a1a1a;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  font-size: 2.6rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* TEXT SECTION */
-.mission-card p,
-.vision-card p {
-  width: 70%;
-
-  color: #050505;
-  display: flex;
-  align-items: center;
-  padding: 3rem;
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
+/* ==========================================================================
+   MISSION + VISION GRID (Desktop Defaults)
+   ========================================================================== */
+   .mission-vision-grid {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+  }
+  
+  .mission-card,
+  .vision-card {
+    display: flex;
+    min-height: 220px;
+  }
+  
+  .label {
+    width: 30%;
+    background: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .mission-card p,
+  .vision-card p {
+    width: 70%;
+    color: #050505;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* Row reversal only applies to desktop screens */
+  .vision-card {
+    flex-direction: row-reverse;
+  }
+  
+  /* ==========================================================================
+     MOBILE-ONLY OVERRIDES (Screens 768px and smaller)
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .mission-card,
+    .vision-card {
+      flex-direction: column; /* Stacks label on top of text */
+      min-height: auto;       /* Prevents text from clipping on small heights */
+      width: 100%;
+    }
+  
+    .label {
+      width: 100%;
+      font-size: 1.8rem;      /* Scales down massive desktop font for mobile screens */
+      padding: 1.5rem 2rem;   /* Optimized padding for compact layout */
+      justify-content: flex-start; /* Aligns header to the left for better reading on phones */
+    }
+  
+    .mission-card p,
+    .vision-card p {
+      width: 100%;
+      padding: 2rem;          /* Gives text breathing room without pinching it */
+      font-size: 1.1rem;
+      display: block;         /* Normalizes paragraph block behavior */
+    }
+  }
 
 /* VISION REVERSED */
 .vision-card {
   flex-direction: row-reverse;
 }
+
 /* ===== REVIEWS SECTION ===== */
 
 .reviews-section {
@@ -570,3 +602,4 @@ align-items: center;
       font-size: 1.1rem;
     }
   }
+
