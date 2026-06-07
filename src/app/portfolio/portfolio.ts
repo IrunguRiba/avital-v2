@@ -56,7 +56,7 @@ export class Portfolio implements AfterViewInit {
       scrollTrigger: {
         trigger: '.hero-section',
         start: 'top top',
-        end: '+=100%',
+        end: '+=120%',
         pin: true,
       }
     });

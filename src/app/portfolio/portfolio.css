@@ -9,6 +9,7 @@
     width: 100%;
     overflow-x: hidden;
     position: relative;
+ 
 }
 .hero-section {
     display: flex;
@@ -177,7 +178,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    box-sizing: border-box;
+
     margin-top: 5rem;
 }
 
@@ -232,6 +233,7 @@
     height: 42px;
     transform: translate(-50%, -50%);
     pointer-events: none;
+
 }
 
 .left-flow::before {
