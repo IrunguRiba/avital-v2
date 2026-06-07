@@ -21,7 +21,7 @@ body, p, .divide-body, .overview-content p, .contact-underline,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+
 }
 
 body {
@@ -725,6 +725,9 @@ body {
    ========================================================================== */
 @media (max-width: 768px) {
   
+  *{
+    overflow: hidden;
+  }
   /* 1. Reset Global Wrapper Dynamics */
   #smooth-wrapper {
     font-size: 1.4rem;
