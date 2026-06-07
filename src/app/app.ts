@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Portfolio } from './portfolio/portfolio';
@@ -23,12 +23,18 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
-export class App implements AfterViewInit {
+export class App implements AfterViewInit, OnInit {
 
   constructor(private router: Router){}
   logo = 'avital-logo.png';
   menuOpen = false;
   quickContactOpen=false
+
+  isMobile = false;
+
+ngOnInit() {
+  this.isMobile = window.innerWidth <= 768;
+}
 
   @ViewChild('menupanel', { static: false }) menupanel!: ElementRef;
   @ViewChild('contactSection', { static: false }) contactSection!: ElementRef;

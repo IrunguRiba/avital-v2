@@ -722,213 +722,221 @@ body {
 /* ==========================================================================
    MOBILE PORTRAIT UI ONLY (Full Screen Nav & Sidebar Adaptation)
    ========================================================================== */
-@media (max-width: 768px) {
+/* ==========================================================================
+   MOBILE PORTRAIT UI ONLY (Full Screen Nav & Sidebar Adaptation)
+   ========================================================================== */
+   @media (max-width: 768px) {
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: auto;
-    overflow-x: hidden;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+      overflow-x: hidden;
+    }
+    
+    /* 1. Reset Global Wrapper Dynamics */
+    #smooth-wrapper {
+      font-size: 1rem;
+    }
+    
+    .apps-wrapper {
+      padding-top: 0 !important;
+    }
+    
+    .hero {
+      position: relative !important;
+      height: 100vh !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem 1.5rem !important;
+      box-sizing: border-box;
+    }
   
-  /* 1. Reset Global Wrapper Dynamics */
-  #smooth-wrapper {
-    font-size: 1rem;
-  }
+    .consultation a {
+      display: none !important;
+    }
   
-  .apps-wrapper {
-    padding-top: 0 !important;
-  }
+    /* 2. Navigation Styling (Kept Fixed over Sidebar Overlay) */
+    .nav {
+      position: fixed !important;
+      width: 100% !important;
+      margin-top: 0 !important;
+      padding: 1rem 1.5rem !important;
+      display: flex !important;
+      overflow: hidden;
+      align-items: center !important;
+      background: transparent;
+    }
   
-  .hero {
-    position: relative !important;
-    height: 100vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem 1.5rem !important;
-    box-sizing: border-box;
-  }
-.consultation a{
-  display: none;
-}
-  /* 2. Navigation Styling (Kept Fixed over Sidebar Overlay) */
-  .nav {
-    position: fixed !important;
-    width: 70% !important;
-    margin-top: 0 !important;
-    padding: 1rem 1.5rem !important;
-    display: flex !important;
-overflow: hidden;
-    align-items: center !important;
-    background: transparent;
-  }
-
-  .logo {
-    margin-left: 0 !important;
-    gap: 1rem !important;
-  }
-
-
-  .menu-consult {
-    margin-right: 0 !important;
-    gap: 1.5rem !important;
+    .logo {
+      margin-left: 0 !important;
+      gap: 1rem !important;
+    }
   
-  }
-
-  .consultation a {
-    font-size: 1.1rem !important;
-    font-weight: bold !important;
-    margin-left: 3em;
-  }
-
-  .consultation a::after {
-    display: none !important;
-  }
-
-
-  .menu-bar span:first-child { width: 100% !important; }
-  .menu-bar span:last-child { width: 70% !important; }
-
-  /* 3. Sidebar Panel Full-Screen Overhaul */
-  .menu-panel {
-    width: 100% !important; /* Full page width */
-    height: 100vh !important; /* Full page height */
-    overflow-y: auto; /* Handle scrolling for short viewports */
-  }
-
-  .menu-two-columns {
-    flex-direction: column-reverse; /* Put primary Menu on top, Overview links below */
-    padding: 120px 24px 40px !important; /* Extra top padding to clear fixed header */
-    gap: 40px !important; 
-  }
-
-  .sidebar-navigation ul li {
-    margin-left: 0 !important; /* Clear out negative indentations */
-    padding: 12px 0 !important;
-  }
-
-  .sidebar-navigation a {
-    font-size: 2.2rem !important; /* Fluid modern text scaling for mobile menu items */
-  }
-
-  .overview-right {
-    margin-top: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 0.8em !important;
-  }
-
-  /* 4. Core Hero Content Alignment Block */
-  .hero-content {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    flex-grow: 1 !important;
-   
+    .menu-consult {
+      margin-right: 0 !important;
+      gap: 0 !important;
+    }
   
-  }
-
-  .left, .right {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    text-align: left !important;
-  }
-
-  /* Structural Title Positioning */
-  .left h1 {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
-    letter-spacing: 2px !important;
-    margin-left: 0 !important;
-    margin-bottom: 0 !important;
-    margin-top: 2rem;
+    .menu-bar span:first-child { width: 100% !important; }
+    .menu-bar span:last-child { width: 70% !important; }
   
-  }
-#logoImg2{
-  display: none;
-}
-  #done {
-    font-size: 2.8rem !important;
-    margin-left: 0 !important;
-    line-height: 2.2 !important;
-
-  }
-
-  .right {
-    margin-top: 0.5rem;
-  }
-
-  #right {
-    font-size: 3.5rem !important;
-    margin-left: 7.5rem !important;
-    margin-top: 0 !important;
-    display: inline-block;
-  }
-
-  #plus {
-    font-size: 2.5rem !important;
-    bottom: 0.8rem !important;
-  }
-
-  /* 5. Bottom Divider Section */
-  .divide2 {
-    position: relative !important;
-    top: 0 !important;
-    margin-left: 0 !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    margin-top: 6rem;
-  }
-
-  .divide2::before {
-    display: none !important;
-  }
-
-  #contact-text-logo {
-    width: 100% !important;
-    display: block !important;
-    gap: 0 !important;
-  }
-
-  .divide-text {
-    max-width: 100% !important;
-    text-align: left !important;
-  }
-
-  .divide-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: 1.3rem !important;
-    line-height: 1.9 !important;
-    letter-spacing: 0.2px !important;
-    color: rgba(255, 255, 255, 1) !important;
-    margin: 0 !important;
-  }
-
-  .start-link {
-    position: absolute !important;
-    bottom: -4rem;
-    left: 0;
-    font-size: 1.4rem !important;
-    font-weight: bold !important;
-    letter-spacing: 0.5px !important;
-    color: #ffffff !important;
-  }
+    .menu-bar.open span:first-child,
+    .menu-bar.open span:last-child {
+      width: 50% !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+    }
   
-  .hero-content, .left h1, #right, #done, .divide2, .logo, .menu-consult {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
+    .menu-bar.open span:first-child {
+      transform: translateY(-30%) rotate(45deg) !important;
+    }
+    .menu-bar.open span:last-child {
+      transform: translateY(-30%) rotate(-45deg) !important;
+    }
+  
+    /* 3. Sidebar Panel Full-Screen Overhaul */
+    .menu-panel {
+      width: 100% !important;
+      height: 100vh !important;
+      overflow-y: auto;
+    }
+  
+    .menu-two-columns {
+      flex-direction: column-reverse;
+      padding: 120px 24px 40px !important;
+      gap: 40px !important; 
+    }
+  
+    .sidebar-navigation ul li {
+      margin-left: 0 !important;
+      padding: 12px 0 !important;
+    }
+  
+    .sidebar-navigation a {
+      font-size: 2.2rem !important;
+    }
+  
+    .overview-right {
+      margin-top: 1.5rem;
+    }
+  
+    .section-title {
+      font-size: 0.8em !important;
+    }
+  
+    /* 4. Core Hero Content Alignment Block */
+    .hero-content {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      padding-top: 7.5rem !important;
+      height: auto !important;
+      min-height: 100vh !important;
+      flex-grow: 1 !important;
+    }
+  
+    .left, .right {
+      position: relative !important;
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      text-align: left !important;
+    }
+  
+    /* Structural Title Positioning */
+    .left h1 {
+      font-size: 1.8rem !important;
+      line-height: 1.1 !important;
+      letter-spacing: 2px !important;
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0.5rem !important;
+    }
+  
+    #logoImg2 {
+      display: none;
+    }
+  
+    #done {
+      font-size: 2.8rem !important;
+      line-height: 1.1 !important;
+      margin-left: 0 !important;
+      display: block !important;
+      margin-top: 0.2rem !important;
+    }
+  
+    .right {
+      margin-top: 0 !important;
+      margin-bottom: 2rem !important;
+    }
+  
+    #right {
+      font-size: 3.5rem !important;
+      margin-left: 0 !important;
+      margin-top: 0 !important;
+      display: inline-block !important;
+    }
+  
+    #plus {
+      font-size: 2.5rem !important;
+      bottom: 0.5rem !important;
+    }
+  
+    /* 5. Bottom Divider Section (STYLING UPDATED) */
+    .divide2 {
+      display: none !important;
+    }
+  
+    .divide2::before {
+      display: none !important;
+    }
+  
+    #contact-text-logo {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 1.2rem !important;
+    }
+  
+    .divide-text {
+      max-width: 100% !important;
+      text-align: left !important;
+    }
+  
+    .divide-body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 1.15rem !important;     /* Slightly optimized fluid size for compact mobile scanning */
+      line-height: 1.7 !important;       /* Well-proportioned line spacing for multi-line flow */
+      letter-spacing: 0.3px !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      margin: 0 !important;
+    }
+  
+    .start-link {
+      position: relative !important;     /* Switched out of absolute space to safely display on mobile screens */
+      display: inline-flex !important;
+      margin-top: 0.5rem !important;     /* Predictable padding underneath the paragraph */
+      font-size: 1.25rem !important;
+      font-weight: bold !important;
+      letter-spacing: 1px !important;
+      color: #ffffff !important;
+      text-decoration: underline !important;
+      white-space: nowrap !important;
+    }
+    
+    .hero-content, .left h1, #right, #done, .divide2, .logo, .menu-consult {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+  
+    .mark {
+      display: none;
+    }
   }
-  .mark{
-    display: none;
-  }
-}
