@@ -3,11 +3,11 @@
 
 :root {
   --ink:    #000000;
-  --dim:    rgba(244,240,232,0.45);
+  --dim:    rgba(244,240,232,0.5);
   --faint:  rgba(244,240,232,0.12);
   --gold:   #c8922a;
   --gold2:  #e8b84b;
-  --err:    #d94f3d;
+  --err:    #b82d1b;
   --mono:   'DM Mono', monospace;
   --serif:  'Orbitron', sans-serif;
 }
@@ -160,14 +160,15 @@
 
 .referral-link {
   color: var(--gold2);
-  border-bottom: 1px solid rgba(232,184,75,0.35);
-  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(232,184,75,0.8);
+  padding-bottom: 1px;
 }
 
 .referral-link:hover {
   color: var(--cream);
   border-bottom-color: var(--cream);
 }
+
 
 /* ══════════════════════════════
    RIGHT — FORM
@@ -267,7 +268,7 @@
 }
 .field-group label .opt {
   font-size: 0.75em;
-  color: rgba(244,240,232,0.25);
+  color: rgba(244,240,232,0.3);
   margin-left: 0.5rem;
   letter-spacing: 0.04em;
 }
@@ -415,7 +416,7 @@
   top: 2px; left: 2px;
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: rgba(200,146,42,0.4);
+  background: rgba(200,146,42, 0.6);
   transition: transform 0.3s cubic-bezier(0.76,0,0.24,1), background 0.3s;
 }
 .radio-toggle:checked {
@@ -485,9 +486,9 @@
 
 .submit-note {
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
-  color: rgba(244,240,232,0.25);
+  color: rgba(244,240,232,0.5);
   max-width: 18rem;
   line-height: 1.7;
 }
@@ -512,46 +513,51 @@
 
 .footer-note {
   font-family: var(--mono);
-  font-size: clamp(0.6rem, 0.9vw, 0.7rem);
+  font-size: clamp(1rem, 0.9vw, 0.7rem);
   letter-spacing: 0.1em;
   line-height: 1.6;
-  color: rgba(244,240,232,0.35);
+  color: rgba(244,240,232,0.5);
   max-width: 32rem;
 }
 
 .footer-copyright {
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   letter-spacing: 0.15em;
-  color: rgba(200,146,42,0.4);
+  color: rgba(200,146,42,0.8);
   margin-top: 1rem;
 }
 
 .footer-right {
+
   text-align: right;
 }
 
 .social-links {
   display: flex;
+  flex-direction: column;
+  display: flex;
   gap: 1.5rem;
   align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
+ 
 }
 
 .social-label {
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size:0.9rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
+  align-self: flex-start;
 }
 
 .social-link {
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 1.3rem;
   letter-spacing: 0.1em;
-  color: var(--dim);
+  color: rgba(200,146,42);
   text-decoration: none;
   transition: color 0.3s;
   position: relative;
@@ -574,6 +580,10 @@
 
 .social-link:hover::after {
   width: 100%;
+}
+.links{
+  display: flex;
+  gap: 2rem;
 }
 
 /* ── ANIMATIONS ── */
