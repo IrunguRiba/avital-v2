@@ -31,6 +31,7 @@ export class Portfolio implements AfterViewInit {
   render = 'render.svg';
   react = 'react.png';
   native = 'React-native.png';
+  trusted='trusted.png'
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

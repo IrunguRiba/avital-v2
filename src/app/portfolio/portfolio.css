@@ -22,6 +22,16 @@
         2rem   /* bottom */
         2rem;  /* left */
 }
+#trusted {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+
+    background: transparent !important;
+    background-color: transparent !important;
+}
 
 /* commitment text */
 #commitment-text {
@@ -53,7 +63,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
-    margin-top: -4rem;
+    margin-top: -5rem;
 }
 
 #waves {
@@ -71,6 +81,7 @@
     flex-wrap: wrap;
     margin-top: -6rem;
     font-weight: bolder;
+    
 }
 #commitment-text,
 .stats,
@@ -429,6 +440,7 @@
     .featured-section { padding: 4rem 1.5rem; }
     .flow-box { min-width: 170px; font-size: 1.1rem; }
     .project-text h3 { font-size: 1.7rem; }
+ 
 }
 
 
@@ -677,6 +689,16 @@
 }
 
 @media (max-width: 768px) {
+    #trusted {
+        width: 65px;
+        height: auto;
+        object-fit: contain;
+        display: inline-block;
+        vertical-align: middle;
+    
+        background: transparent !important;
+        background-color: transparent !important;
+    }
     .featured-section {
         padding: 4rem 1.5rem;
     }
