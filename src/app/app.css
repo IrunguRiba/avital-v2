@@ -614,6 +614,92 @@ body {
   height: 3em;
 }
 
+
+/* PROJECT-CARDS */
+.project-display-card { 
+  position: relative; 
+  overflow: hidden;   
+  border-radius: 4px;
+  width: 250px;
+  height: 250px;
+  background-color: #1a1a1a;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-display-card:hover {
+  transform: translateY(-4px); /* Clean lift effect without layout shifts */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* 2. The Project Image */
+.project-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; 
+  display: block;
+  
+  /* Adds a premium, smooth zoom effect when hovering the card */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-display-card:hover .project-img {
+  transform: scale(1.05); /* Slight upscale */
+}
+
+/* 3. The Escape Link Wrapper */
+.escape-link {
+ 
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  
+  /* Start completely invisible and shifted slightly left */
+  opacity: 0;
+  transform: translateX(-8px);
+  
+  /* Isolated transition that handles appearance smoothly */
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Triggers when the user hovers over the entire card */
+.project-display-card:hover .escape-link {
+  opacity: 1;
+  transform: translateX(0); /* Glides elegantly into its resting position */
+}
+
+/* 4. The Escape Icon Button */
+.escape-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.2); /* Glossy frosted-glass appearance */
+  backdrop-filter: blur(4px); /* Modern blur effect */
+  border-radius: 50%; /* Pure circular button */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Internal micro-interaction for the button itself when targeted directly */
+.escape-link a:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.img-icon {
+  width: 14px; /* Slightly smaller for a sleeker look */
+  height: 14px;
+  display: block;
+  transition: filter 0.2s ease;
+}
+
+/* Inverts the icon color from white to black when its background goes white */
+.escape-link a:hover .img-icon {
+  filter: invert(1);
+}
+
 /* ==========================================================================
    6. MAIN ROUTER SECTION BLOCKS
    ========================================================================== */
@@ -747,17 +833,20 @@ body {
     .hero {
       position: relative !important;
       height: 100vh !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1rem 1.5rem !important;
+      padding: 2rem 1.5rem !important;
       box-sizing: border-box;
     }
   
     .consultation a {
       display: none !important;
     }
-  
+
+    /* 6. Background Image Scaling */
+    .hero-bg {
+      transform: scale(0.95) !important; 
+      margin-left: 2px;
+    }
+
     /* 2. Navigation Styling (Kept Fixed over Sidebar Overlay) */
     .nav {
       position: fixed !important;
@@ -828,16 +917,17 @@ body {
       font-size: 0.8em !important;
     }
   
-    /* 4. Core Hero Content Alignment Block */
+    /* 4. Core Hero Content Alignment Block - Positioning Elements Cleanly at the Bottom */
     .hero-content {
       display: flex !important;
       flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      padding-top: 7.5rem !important;
-      height: auto !important;
+      justify-content: flex-end !important; /* Positions text groups naturally at the screen bottom */
+      align-items: flex-start !important;   /* Aligns text strictly to the left edge */
+      padding-bottom: 3rem !important;
+      height: 100vh !important;
       min-height: 100vh !important;
       flex-grow: 1 !important;
+      margin: 2rem;
     }
   
     .left, .right {
@@ -845,7 +935,7 @@ body {
       width: 100% !important;
       height: auto !important;
       display: block !important;
-      text-align: left !important;
+      text-align: left !important; /* Left-aligned typography configuration */
     }
   
     /* Structural Title Positioning */
@@ -863,7 +953,7 @@ body {
     }
   
     #done {
-      font-size: 2.8rem !important;
+      font-size: 2.3rem !important;
       line-height: 1.1 !important;
       margin-left: 0 !important;
       display: block !important;
@@ -877,14 +967,18 @@ body {
   
     #right {
       font-size: 3.5rem !important;
-      margin-left: 0 !important;
+      margin: 2rem;
+      margin-left: 20% !important;
       margin-top: 0 !important;
       display: inline-block !important;
     }
   
     #plus {
-      font-size: 2.5rem !important;
-      bottom: 0.5rem !important;
+     font-size: 3.5rem !important;
+      margin: 2rem;
+      margin-left: 87% !important;
+      margin-top: 0 !important;
+      display: inline-block !important;
     }
   
     /* 5. Bottom Divider Section (STYLING UPDATED) */
@@ -911,17 +1005,17 @@ body {
   
     .divide-body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-      font-size: 1.15rem !important;     /* Slightly optimized fluid size for compact mobile scanning */
-      line-height: 1.7 !important;       /* Well-proportioned line spacing for multi-line flow */
+      font-size: 1.15rem !important; 
+      line-height: 1.7 !important; 
       letter-spacing: 0.3px !important;
       color: rgba(255, 255, 255, 0.95) !important;
       margin: 0 !important;
     }
   
     .start-link {
-      position: relative !important;     /* Switched out of absolute space to safely display on mobile screens */
+      position: relative !important; 
       display: inline-flex !important;
-      margin-top: 0.5rem !important;     /* Predictable padding underneath the paragraph */
+      margin-top: 0.5rem !important; 
       font-size: 1.25rem !important;
       font-weight: bold !important;
       letter-spacing: 1px !important;

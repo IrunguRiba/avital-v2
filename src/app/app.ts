@@ -32,6 +32,8 @@ export class App implements AfterViewInit, OnInit {
 
   isMobile = false;
 
+  
+  
 ngOnInit() {
   this.isMobile = window.innerWidth <= 768;
 }
