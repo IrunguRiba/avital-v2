@@ -17,7 +17,7 @@
     justify-content: center;
 
     padding:
-        3rem   /* top */
+        5rem   /* top */
         2rem   /* right */
         2rem   /* bottom */
         2rem;  /* left */
@@ -26,6 +26,11 @@
     width: 100px;
     height: auto;
     object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* commitment text */
@@ -58,7 +63,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
-    margin-top: -9rem;
+    margin-top: -10rem;
 }
 
 #waves {
@@ -435,12 +440,6 @@
     .featured-section { padding: 4rem 1.5rem; }
     .flow-box { min-width: 170px; font-size: 1.1rem; }
     .project-text h3 { font-size: 1.7rem; }
-    
-   .stats {
-  
-    margin-top: -5rem;
-}
-    
  
 }
 
@@ -690,6 +689,15 @@
 }
 
 @media (max-width: 768px) {
+    .stats {
+        width: 100%;
+        display: flex;
+        font-family: 'Orbitron', sans-serif;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: -7rem;
+    }
     #trusted {
         width: 65px;
         height: auto;
