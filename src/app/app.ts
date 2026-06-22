@@ -80,16 +80,34 @@ ngOnInit() {
       },
     
       onLeaveBack: () => {
-        gsap.to(".nav", {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "power2.out",
-          pointerEvents: "auto"
-        });
+        const isMobile = window.innerWidth <= 768;
+    
+        if (isMobile) {
+          // 🔥 MOBILE: Bring back the entire nav immediately
+          gsap.to(".nav", {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            pointerEvents: "auto"
+          });
+          
+          // Safety reset for inner elements just in case window resized
+          gsap.set(".nav > :not(.logo)", { autoAlpha: 1, y: 0, pointerEvents: "auto" });
+        } else {
+          // 🖥 DESKTOP: Bring back the desktop inner elements
+          gsap.to(".nav > :not(.logo)", {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            pointerEvents: "auto"
+          });
+          
+          gsap.set(".nav", { autoAlpha: 1, pointerEvents: "auto" });
+        }
       }
     });
-
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('.nav');
   
