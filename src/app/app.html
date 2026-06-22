@@ -1,4 +1,4 @@
-<div class="nav" #navigation>
+  <div class="nav" [ngClass]="navClass"  #navigation>
   <!-- LOGO START -->
   <div class="logo" (click)="gotoHome()">
     <div class="mark">
@@ -100,7 +100,7 @@
           <div class="divide2">
             <!-- LEFT LINK -->
             <a #text1 class="start-link" (click)="openQuickContact()">
-              Quick Contact 
+              Quick Contact Here
             </a>
             <!-- MOBILE BOTTOM AREA -->
 

@@ -35,18 +35,56 @@ body {
 /* ==========================================================================
    2. NAVIGATION BAR & LOGO
    ========================================================================== */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 96vw;
-  margin-top: 2em;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  background: transparent;
-}
+   .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    width: 96vw;
+    margin-top: 2em;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    z-index: 10000;
+  
+    background: transparent;
+  
+    transition: all 0.35s ease;
+  }
+  .nav.scrolled {
+
+
+  
+    transform: translateY(-10px);
+  
+  }
+  .nav.about {
+    background: rgba(23, 24, 24, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transform: translateY(-10px);
+  }
+
+  .nav.nav-about-glass {
+    background: rgba(0, 0, 0, 0.5) !important; /* Soft dark tinted backdrop */
+ 
+  
+    
+    /* Extra padding polish for glass look when inside about */
+    padding: -3rem ;
+    margin-top: 0;
+    width: 100vw;
+  }
+
+  /* Invert navigation branding typography to dark inside about */
+  .nav.nav-about-glass #A,
+  .nav.nav-about-glass #V,
+  .nav.nav-about-glass .consultation a {
+    color: #000000 !important;
+  }
+
 
 .logo,
 .menu-consult {
@@ -822,6 +860,7 @@ body {
       overflow: auto;
       overflow-x: hidden;
     }
+   
     
     /* 1. Reset Global Wrapper Dynamics */
     #smooth-wrapper {

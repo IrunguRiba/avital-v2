@@ -50,9 +50,57 @@ ngOnInit() {
 
 
   ngAfterViewInit(): void {
+    ScrollTrigger.create({
+      trigger: "#footer",
+      start: "top 10%",
+      end: "top bottom",
+      scroller: "#smooth-wrapper",
+    
+      onEnter: () => {
+        const isMobile = window.innerWidth <= 768;
+    
+        if (isMobile) {
+          // 🔥 MOBILE: hide EVERYTHING (including logo)
+          gsap.to(".nav", {
+            autoAlpha: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            pointerEvents: "none"
+          });
+        } else {
+          // 🖥 DESKTOP: hide only menu/content
+          gsap.to(".nav > :not(.logo)", {
+            autoAlpha: 0,
+            y: -10,
+            duration: 0.4,
+            ease: "power2.out",
+            pointerEvents: "none"
+          });
+        }
+      },
+    
+      onLeaveBack: () => {
+        gsap.to(".nav", {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.4,
+          ease: "power2.out",
+          pointerEvents: "auto"
+        });
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+  
+      if (window.scrollY > 50) {
+        nav?.classList.add('scrolled');
+      } else {
+        nav?.classList.remove('scrolled');
+      }
+    });
 
     this.smoother = ScrollSmoother.create({
-      
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
       smooth: 1,
@@ -60,8 +108,7 @@ ngOnInit() {
       normalizeScroll: true
     });
   
-  
-   gsap.to("#hero", {
+    gsap.to("#hero", {
       opacity: 0,
       scale: 0.4,
       ease: "none",
@@ -73,13 +120,30 @@ ngOnInit() {
         scroller: "#smooth-wrapper"
       }
     });
-    const sections = ['.portfolio', '.about-us', '.prices', '.contact', '.footer'];
-  
-    
+
+    // --- NEW: Dynamic Navigation Trigger for About Us Section ---
+    ScrollTrigger.create({
+      trigger: "#about",
+      start: "top top",
+      end: "bottom top",
+      scroller: "#smooth-wrapper",
+      onEnter: () => document.querySelector('.nav')?.classList.add('nav-about-glass'),
+      onLeave: () => document.querySelector('.nav')?.classList.remove('nav-about-glass'),
+      onEnterBack: () => document.querySelector('.nav')?.classList.add('nav-about-glass'),
+      onLeaveBack: () => document.querySelector('.nav')?.classList.remove('nav-about-glass')
+    });
     
     ScrollTrigger.refresh();
+    
   }
-
+  
+  
+  get navClass() {
+    return {
+      scrolled: true, // keep base transition effects if you want
+      about: this.currentSection === 'about'
+    };
+  }
   scrollToSection(section: string) {
     this.smoother.scrollTo(`#${section}`, true);
   }
@@ -96,6 +160,8 @@ ngOnInit() {
 
 
   currentSection = 'hero';
+
+  
   // Smooth scroll navigation
   gotoPortfolio() {
   this.smoother.scrollTo('#portfolio', false);
