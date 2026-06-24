@@ -258,6 +258,16 @@
   -webkit-appearance: none;
 }
 
+/* Prevent native browser styling from adding a white background and small font on suggested autofills */
+.field-group input:-webkit-autofill,
+.field-group input:-webkit-autofill:hover, 
+.field-group input:-webkit-autofill:focus {
+  transition: background-color 600000s ease-in-out 0s;
+  -webkit-text-fill-color: #ffffff !important;
+  font-family: var(--mono) !important;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem) !important;
+}
+
 .field-group input:focus,
 .field-group textarea:focus {
   border-bottom-color: var(--cream);

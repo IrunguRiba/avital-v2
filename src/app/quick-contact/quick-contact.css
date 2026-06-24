@@ -18,7 +18,8 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   padding: clamp(14px, 1vw, 40px) clamp(1px, 1vw, 40px);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Mono', monospace !important;
+  
   color: var(--text-primary);
   overflow-y: auto;
 }
@@ -177,7 +178,8 @@ h2 {
   border: none;
   outline: none;
   color: var(--text-primary);
-  font-size: 14px;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 1.1rem !important; 
   letter-spacing: 0.5px;
   padding: 10px 0 6px;
   caret-color: var(--accent);

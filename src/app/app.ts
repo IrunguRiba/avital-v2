@@ -95,7 +95,6 @@ ngOnInit() {
           // Safety reset for inner elements just in case window resized
           gsap.set(".nav > :not(.logo)", { autoAlpha: 1, y: 0, pointerEvents: "auto" });
         } else {
-          // 🖥 DESKTOP: Bring back the desktop inner elements
           gsap.to(".nav > :not(.logo)", {
             autoAlpha: 1,
             y: 0,
