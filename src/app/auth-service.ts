@@ -8,7 +8,7 @@ import {Observable } from 'rxjs'
 })
 export class AuthService {
 
-private localUrl='http://localhost:4000/api';
+private localUrl='https://avital-v2-backend.onrender.com/api';
 constructor (private http: HttpClient){}
 
 request(request: IUserRequest): Observable<IUserRequest>{

@@ -32,7 +32,7 @@ export class QuickContact {
   notificationTitle = '';
   notificationMessage = '';
 
-  countdown = 6;
+  countdown = 10;
 
   private timer: any;
   private interval: any;
@@ -50,16 +50,16 @@ export class QuickContact {
     this.notificationMessage = message;
 
     this.showNotification = true;
-    this.countdown = 3;
+
 
     this.interval = setInterval(() => {
       this.countdown--;
-    }, 2500);
+    }, 1000);
 
     this.timer = setTimeout(() => {
       this.showNotification = false;
       clearInterval(this.interval);
-    }, 6000);
+    }, 9000);
   }
   submitForm(): void {
     if (this.form.invalid) {
@@ -78,11 +78,15 @@ export class QuickContact {
         this.showPopup(
           'success',
           'Request received.',
-          "We'll be in touch via email or WhatsApp shortly. If there is any delay, kindly call us on 0768793478."
+          "We'll be in touch via email or WhatsApp shortly. If delayed, kindly call us on 0768793478 as in Contact Section."
         );
 
-        // close panel AFTER showing popup if you want UX flow like modal → success
-        this.close.emit();
+       
+
+        setTimeout(()=>{
+           this.close.emit();
+        }, 8000)
+        
       },
 
       error: (err: any) => {
