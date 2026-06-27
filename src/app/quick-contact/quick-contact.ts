@@ -54,7 +54,7 @@ export class QuickContact {
 
     this.interval = setInterval(() => {
       this.countdown--;
-    }, 3000);
+    }, 2500);
 
     this.timer = setTimeout(() => {
       this.showNotification = false;

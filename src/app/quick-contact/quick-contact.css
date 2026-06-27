@@ -477,7 +477,7 @@ h3::after {
     font-weight: 300;
   }
   .success .notify-eyebrow { color: var(--accent); }
-  .error .notify-eyebrow { color: #cc5555; }
+  .error .notify-eyebrow { color: #da0707; }
   
   /* Text Icon Accentuation */
   .notify-icon {
