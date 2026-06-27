@@ -42,11 +42,10 @@ export class Contact implements OnInit, AfterViewInit {
     if (this.contactForm.valid) {
       this.showSuccess = true;
 
-      // Automatically hide the success overlay and reset the form after 5 seconds
       setTimeout(() => {
         this.showSuccess = false;
         this.contactForm.reset({
-          contactChoice: 'phone', // Keep default radio selection state stable on reset
+          contactChoice: 'phone', 
           fullName: '',
           phone: '',
           email: '',

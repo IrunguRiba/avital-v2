@@ -13,10 +13,10 @@
     </div>
 
     <!-- SUB -->
-    <p class="sub">Please fill in some quick details so we can reach you</p>
+    <p class="sub">Please fill in some quick details so we can reach you.</p>
 
     <form [formGroup]="form" (ngSubmit)="submitForm()">
-      <!-- GRID: Names -->
+      <!-- NAMES -->
       <div class="grid-2">
         <div class="field">
           <input type="text" formControlName="firstName" placeholder=" " />
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <!-- GRID: Contact -->
+      <!-- CONTACT -->
       <div class="grid-2">
         <div class="field">
           <input type="email" formControlName="email" placeholder=" " />
@@ -40,36 +40,37 @@
         </div>
 
         <div class="field">
-          <input type="tel" formControlName="phone" placeholder="+2547XXXXXXXX" />
+          <input type="tel" formControlName="phoneNumber" placeholder="+2547XXXXXXXX" />
           <label>Phone Number — Required</label>
           <div class="line"></div>
         </div>
       </div>
 
-      <!-- INSTITUTION RADIO -->
+      <!-- INSTITUTION -->
       <div class="section">
         <h3>Select Institution Type</h3>
 
         <div class="radio-group">
           <label class="radio">
-            <input type="radio" formControlName="institutionType" value="university" />
+            <input type="radio" formControlName="institution" value="University" />
             <span></span>
             University
           </label>
 
           <label class="radio">
-            <input type="radio" formControlName="institutionType" value="college" />
+            <input type="radio" formControlName="institution" value="College" />
             <span></span>
             College
           </label>
 
           <label class="radio">
-            <input type="radio" formControlName="institutionType" value="tti" />
+            <input type="radio" formControlName="institution" value="TTI" />
             <span></span>
             TTI
           </label>
+
           <label class="radio">
-            <input type="radio" formControlName="institutionType" value="Any Other" />
+            <input type="radio" formControlName="institution" value="ANY OTHER" />
             <span></span>
             ANY OTHER
           </label>
@@ -82,19 +83,19 @@
 
         <div class="radio-group">
           <label class="radio">
-            <input type="radio" formControlName="service" value="proposal" />
+            <input type="radio" formControlName="service" value="Proposal / Brainstorming" />
             <span></span>
             Proposal / Brainstorming
           </label>
 
           <label class="radio">
-            <input type="radio" formControlName="service" value="project" />
+            <input type="radio" formControlName="service" value="Project" />
             <span></span>
             Project
           </label>
 
           <label class="radio">
-            <input type="radio" formControlName="service" value="other" />
+            <input type="radio" formControlName="service" value="Any Other" />
             <span></span>
             Any Other
           </label>
@@ -108,5 +109,36 @@
         </button>
       </div>
     </form>
+  </div>
+</div>
+
+
+<div
+  class="notify"
+  *ngIf="showNotification"
+  [class.success]="notificationType === 'success'"
+  [class.error]="notificationType === 'error'"
+>
+  <div class="notify-string"></div>
+  
+  <div class="notify-container">
+    <div class="notify-header">
+      <span class="notify-eyebrow">
+        {{ notificationType === 'success' ? 'Status // Success' : 'Status // Alert' }}
+      </span>
+      <div class="notify-icon">
+        <span *ngIf="notificationType === 'success'">✓</span>
+        <span *ngIf="notificationType === 'error'">✕</span>
+      </div>
+    </div>
+
+    <div class="notify-content">
+      <h3>{{ notificationTitle }}</h3>
+      <p>{{ notificationMessage }}</p>
+    </div>
+
+    <div class="notify-progress">
+      <div class="notify-progress-bar"></div>
+    </div>
   </div>
 </div>

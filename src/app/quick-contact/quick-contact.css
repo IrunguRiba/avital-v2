@@ -412,6 +412,212 @@ h3::after {
   transform: scaleX(0);
 }
 
+/*NOTIFICATION */
+/* ==========================================================================
+   AWARDS-INSPIRED STRING-DROP NOTIFICATION SYSTEM
+   ========================================================================== */
+
+   .notify {
+    position: fixed;
+    inset: 0; 
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    justify-content: flex-start; /* Keeps the string anchored to the top of the viewport */
+    
+    /* Synchronized ambient backdrop blur cycle */
+    animation: blurCycle 6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  
+  /* The Hanging String Line */
+  .notify-string {
+    width: 1px;
+    background: var(--accent);
+    opacity: 0.5;
+    height: calc(40vh - 90px); /* Mathematically lowers the notification box to sit perfectly dead-center */
+    transform-origin: top;
+    pointer-events: none;
+    
+    /* Core rope mechanics: Drops with elastic bounce, holds, pulls back to 0 */
+    animation: stringDropPull 6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  
+  /* Notification Container Window */
+  .notify-container {
+    position: relative;
+    width: clamp(300px, 90vw, 440px);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 26px;
+    pointer-events: auto;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+    
+    /* Follows the string path explicitly down and up */
+    animation: windowDropPull 6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  
+  /* Minimal Editorial Header Layout */
+  .notify-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .notify-eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .success .notify-eyebrow { color: var(--accent); }
+  .error .notify-eyebrow { color: #cc5555; }
+  
+  /* Text Icon Accentuation */
+  .notify-icon {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .success .notify-icon { color: var(--accent); }
+  .error .notify-icon { color: #cc5555; }
+  
+  /* Typographic Presentation */
+  .notify-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: none;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0px;
+    display: block;
+  }
+  .notify-content h3::after { display: none; } /* Clear out standard panel style overrides */
+  
+  .notify-content p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  
+  /* Linear Raw Countdown Bar at Bottom edge */
+  .notify-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+  }
+  
+  .notify-progress-bar {
+    height: 100%;
+    width: 100%;
+    transform-origin: left;
+    /* Delays progress calculation until drop bounce settles, ticks exactly for 3 seconds */
+    animation: countdown 5s linear 0.5s forwards;
+  }
+  .success .notify-progress-bar { background: var(--accent); }
+  .error .notify-progress-bar { background: #cc5555; }
+  
+  
+  /* ==========================================================================
+     TIMED MECHANICS TIMELINES (Calculated for a precise 3.8s overall duration)
+     ========================================================================== */
+  
+  /* 1. Backdrop Blur Overlays */
+  @keyframes blurCycle {
+    0% { backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); background: rgba(10, 10, 10, 0); }
+    12% { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(10, 10, 10, 0.4); }
+    88% { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(10, 10, 10, 0.4); }
+    100% { backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); background: rgba(10, 10, 10, 0); }
+  }
+  
+  @keyframes stringDropPull {
+
+    0%{
+        transform:scaleY(0);
+        opacity:0;
+    }
+
+    15%{
+        transform:scaleY(1.02);
+        opacity:.5;
+    }
+
+    22%{
+        transform:scaleY(1);
+    }
+
+    80%{
+        transform:scaleY(1);
+        opacity:.5;
+    }
+
+    92%{
+        transform:scaleY(.96);
+        opacity:.4;
+    }
+
+    100%{
+        transform:scaleY(0);
+        opacity:0;
+    }
+}
+  /* 3. Panel Translation Mechanics */
+  @keyframes windowDropPull {
+
+    0%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+
+    14%{
+        transform:translateY(24px);
+        opacity:1;
+    }
+
+    20%{
+        transform:translateY(-8px);
+    }
+
+    26%{
+        transform:translateY(0);
+    }
+
+    80%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    92%{
+        transform:translateY(-18px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+  
+  /* 4. Timeline Bar depletion */
+  @keyframes countdown {
+    0% { transform: scaleX(1); }
+    100% { transform: scaleX(0); }
+  }
+
+
+
 /* RESPONSIVE */
 
 @media (max-width: 620px) {
