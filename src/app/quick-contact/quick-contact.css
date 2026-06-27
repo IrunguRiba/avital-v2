@@ -475,6 +475,7 @@ h3::after {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 300;
+    font-size: 0.7rem;
   }
   .success .notify-eyebrow { color: var(--accent); }
   .error .notify-eyebrow { color: #da0707; }
@@ -485,7 +486,7 @@ h3::after {
     font-weight: bold;
   }
   .success .notify-icon { color: var(--accent); }
-  .error .notify-icon { color: #cc5555; }
+  .error .notify-icon { color: #e90606; }
   
   /* Typographic Presentation */
   .notify-content h3 {
@@ -523,11 +524,10 @@ h3::after {
     height: 100%;
     width: 100%;
     transform-origin: left;
-    /* Delays progress calculation until drop bounce settles, ticks exactly for 3 seconds */
     animation: countdown 5s linear 0.5s forwards;
   }
   .success .notify-progress-bar { background: var(--accent); }
-  .error .notify-progress-bar { background: #cc5555; }
+  .error .notify-progress-bar { background: #ce0303; }
   
   
   /* ==========================================================================
